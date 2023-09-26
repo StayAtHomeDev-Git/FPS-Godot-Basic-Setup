@@ -1,5 +1,7 @@
 # FPS Godot Basic Setup
 
+![alt text](https://github.com/StayAtHomeDev-Git/FPS-Godot-Basic-Setup/blob/main/readme_img.png)
+
 These are the project files for the first episode of my "FPS Godot Engine Project" video tutorial series.
 
 That video series can be found here:
