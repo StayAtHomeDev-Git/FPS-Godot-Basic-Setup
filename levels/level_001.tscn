@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://b1yleqbb8tc7x"]
 
-[ext_resource type="PackedScene" uid="uid://btv0a42cgxt8g" path="res://levels/WE_test.tscn" id="1_ab866"]
-[ext_resource type="Material" uid="uid://cn1gsy15bkaff" path="res://materials/grid.tres" id="2_mv4go"]
-[ext_resource type="Texture2D" uid="uid://ivvpsi314b34" path="res://textures/grid.jpg" id="3_bd3v6"]
-[ext_resource type="PackedScene" uid="uid://c3ffql15mo0aj" path="res://controllers/fps_controller.tscn" id="4_ka3fl"]
+[ext_resource type="PackedScene" uid="uid://btv0a42cgxt8g" path="res://levels/WE_test.tscn" id="1_db21n"]
+[ext_resource type="Material" uid="uid://cn1gsy15bkaff" path="res://materials/grid.tres" id="2_x5xie"]
+[ext_resource type="Texture2D" uid="uid://ivvpsi314b34" path="res://textures/grid.jpg" id="3_yfwkt"]
+[ext_resource type="PackedScene" uid="uid://c3ffql15mo0aj" path="res://controllers/fps_controller.tscn" id="4_liofc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gd0ev"]
-material = ExtResource("2_mv4go")
+material = ExtResource("2_x5xie")
 size = Vector3(20, 0.5, 20)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oahyi"]
@@ -84,8 +84,8 @@ shader_parameter/uv1_scale = Vector3(0.5, 0.5, 0.5)
 shader_parameter/uv1_offset = Vector3(0.5, 0.5, 0.5)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = ExtResource("3_bd3v6")
-shader_parameter/texture_roughness = ExtResource("3_bd3v6")
+shader_parameter/texture_albedo = ExtResource("3_yfwkt")
+shader_parameter/texture_roughness = ExtResource("3_yfwkt")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xc4gq"]
 material = SubResource("ShaderMaterial_0racc")
@@ -108,8 +108,8 @@ shader_parameter/uv1_scale = Vector3(0.5, 0.5, 0.5)
 shader_parameter/uv1_offset = Vector3(1, 0.5, 0.5)
 shader_parameter/uv2_scale = Vector3(1, 1, 1)
 shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/texture_albedo = ExtResource("3_bd3v6")
-shader_parameter/texture_roughness = ExtResource("3_bd3v6")
+shader_parameter/texture_albedo = ExtResource("3_yfwkt")
+shader_parameter/texture_roughness = ExtResource("3_yfwkt")
 
 [sub_resource type="PrismMesh" id="PrismMesh_rutao"]
 material = SubResource("ShaderMaterial_62u37")
@@ -121,7 +121,7 @@ data = PackedVector3Array(-4, 1, 1, 4, -1, 1, -4, -1, 1, -4, 1, -1, -4, -1, -1, 
 
 [node name="Node3D" type="Node3D"]
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_ab866")]
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_db21n")]
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
@@ -151,4 +151,4 @@ skeleton = NodePath("../Box")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_j6kcl")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("4_ka3fl")]
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_liofc")]
