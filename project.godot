@@ -12,7 +12,7 @@ config_version=5
 
 config/name="001 - Basic Setup"
 run/main_scene="res://levels/level_001.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
