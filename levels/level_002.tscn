@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfhijorlyrre8"]
+
+[ext_resource type="PackedScene" uid="uid://btv0a42cgxt8g" path="res://levels/WE_test.tscn" id="1_cnxaj"]
+[ext_resource type="Material" uid="uid://cn1gsy15bkaff" path="res://materials/grid.tres" id="2_tp0t7"]
+[ext_resource type="Material" uid="uid://bpe5s85coacsb" path="res://materials/grid-yellow.tres" id="3_a6ia1"]
+[ext_resource type="PackedScene" uid="uid://c3ffql15mo0aj" path="res://controllers/fps_controller.tscn" id="5_0cf6h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gd0ev"]
+material = ExtResource("2_tp0t7")
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oahyi"]
+data = PackedVector3Array(-10, 0.25, 10, 10, 0.25, 10, -10, -0.25, 10, 10, 0.25, 10, 10, -0.25, 10, -10, -0.25, 10, 10, 0.25, -10, -10, 0.25, -10, 10, -0.25, -10, -10, 0.25, -10, -10, -0.25, -10, 10, -0.25, -10, 10, 0.25, 10, 10, 0.25, -10, 10, -0.25, 10, 10, 0.25, -10, 10, -0.25, -10, 10, -0.25, 10, -10, 0.25, -10, -10, 0.25, 10, -10, -0.25, -10, -10, 0.25, 10, -10, -0.25, 10, -10, -0.25, -10, 10, 0.25, 10, -10, 0.25, 10, 10, 0.25, -10, -10, 0.25, 10, -10, 0.25, -10, 10, 0.25, -10, -10, -0.25, 10, 10, -0.25, 10, -10, -0.25, -10, 10, -0.25, 10, 10, -0.25, -10, -10, -0.25, -10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("1_cnxaj")]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+mesh = SubResource("BoxMesh_gd0ev")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_oahyi")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("5_0cf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.83885)
+
+[node name="LowPlatform" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59216, 1.94331, -4.60031)
+use_collision = true
+size = Vector3(6, 0.5, 4)
+material = ExtResource("3_a6ia1")
+
+[node name="CrouchLabel" type="Label3D" parent="LowPlatform"]
+transform = Transform3D(0.876466, 0, 0.481463, 0, 1, 0, -0.481463, 0, 0.876466, 0, 0, 0)
+pixel_size = 0.03
+offset = Vector2(2, 50)
+text = "CROUCH"
+
+[node name="HighPlatform" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.59593, 0.92773, -4.53523)
+use_collision = true
+size = Vector3(6, 0.5, 4)
+material = ExtResource("3_a6ia1")
+
+[node name="TooLowLabel" type="Label3D" parent="HighPlatform"]
+transform = Transform3D(0.918977, 0, -0.394311, 0, 1, 0, 0.394311, 0, 0.918977, 0, 0, 0)
+pixel_size = 0.04
+offset = Vector2(0, 100)
+text = "TOO LOW
+"

@@ -1,4 +1,5 @@
 E01 - Finish
+E02 - Finish
 
 
 # FPS Godot Basic Setup
