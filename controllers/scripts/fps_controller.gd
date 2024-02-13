@@ -117,7 +117,7 @@ func crouching(state : bool):
 			set_movement_speed("crouching")
 		false:
 			ANIMATIONPLAYER.play("Crouch",0, -CROUCH_SPEED, true)
-			set_movement_speed("Default")
+			set_movement_speed("default")
 			
 func uncrouch_check():
 	if CROUCH_SHAPECAST.is_colliding() == false:
