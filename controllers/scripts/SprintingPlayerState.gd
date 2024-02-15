@@ -15,6 +15,10 @@ func update(delta):
 	
 	set_animation_speed(PLAYER.velocity.length())
 	
+	if Input.is_action_pressed("crouch") and PLAYER.is_on_floor():
+		transition.emit("CrouchingPlayerState")
+			
+	
 	if Input.is_action_just_released("sprint"):
 		transition.emit("WalkingPlayerState")
 
