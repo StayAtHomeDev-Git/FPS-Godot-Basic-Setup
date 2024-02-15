@@ -30,6 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _input(event):
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
+	
 
 func update_camera(delta) -> void:
 	_mouse_rotation.x += _tilt_input * delta
@@ -50,10 +51,8 @@ func update_camera(delta) -> void:
 func _ready():
 	
 	Global.player = self
-	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-	
 	CROUCH_SHAPECAST.add_exception($".")
 
 func _physics_process(delta):
@@ -67,7 +66,6 @@ func update_gravity(delta) -> void:
 	
 func update_input(speed: float, acceleration: float, deceleration: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
-	Global.debug.add_property("input_dir", input_dir, 4)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
 	if direction:

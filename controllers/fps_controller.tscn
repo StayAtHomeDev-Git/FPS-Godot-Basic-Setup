@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3ffql15mo0aj"]
+[gd_scene load_steps=19 format=3 uid="uid://c3ffql15mo0aj"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://materials/player.tres" id="2_gldw4"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://controllers/scripts/IdlePlayerState.gd" id="6_ol7nt"]
 [ext_resource type="Script" path="res://controllers/scripts/WalkingPlayerState.gd" id="7_tqs6g"]
 [ext_resource type="Script" path="res://controllers/scripts/SprintingPlayerState.gd" id="9_idqp6"]
+[ext_resource type="Script" path="res://controllers/CrouchingPlayerState.gd" id="10_gmkq7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6tj1"]
 
@@ -273,6 +274,7 @@ libraries = {
 }
 
 [node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("SphereShape3D_bwh5k")
 target_position = Vector3(0, 0.5, 0)
@@ -350,5 +352,8 @@ script = ExtResource("7_tqs6g")
 
 [node name="SprintingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("9_idqp6")
+
+[node name="CrouchingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("10_gmkq7")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
