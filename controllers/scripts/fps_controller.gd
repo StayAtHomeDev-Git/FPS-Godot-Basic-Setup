@@ -66,7 +66,8 @@ func _update_camera(delta):
 	_tilt_input = 0.0
 	
 func _ready():
-
+	
+	Global.player = self
 	# Get mouse input
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -77,10 +78,9 @@ func _ready():
 	CROUCH_SHAPECAST.add_exception($".")
 
 func _physics_process(delta):
-	
+
 	Global.debug.add_property("MovementSpeed",_speed,1)
-	Global.debug.add_property("MousseRotation",_mouse_rotation,1)
-	
+	Global.debug.add_property("MouseRotation",_mouse_rotation,2)
 	# Update camera movement based on mouse movement
 	_update_camera(delta)
 	

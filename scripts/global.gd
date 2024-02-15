@@ -1,2 +1,4 @@
 extends Node
-var debug
+
+var debug # Reference to DebugPanel for debug property assignment
+var player

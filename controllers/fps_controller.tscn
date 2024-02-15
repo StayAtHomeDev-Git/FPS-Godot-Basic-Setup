@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3ffql15mo0aj"]
+[gd_scene load_steps=15 format=3 uid="uid://c3ffql15mo0aj"]
 
 [ext_resource type="Script" path="res://controllers/scripts/fps_controller.gd" id="1_pgc1p"]
 [ext_resource type="Material" uid="uid://b4gwd5h7ixvct" path="res://materials/player.tres" id="2_gldw4"]
 [ext_resource type="Script" path="res://scripts/Reticle.gd" id="3_tgcuf"]
 [ext_resource type="Theme" uid="uid://bdkxky6ptohga" path="res://themes/debug.tres" id="4_xftu8"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="5_tkw17"]
+[ext_resource type="Script" path="res://scripts/state_machine.gd" id="6_4e1jy"]
+[ext_resource type="Script" path="res://controllers/scripts/IdlePlayerState.gd" id="6_ol7nt"]
+[ext_resource type="Script" path="res://controllers/scripts/WalkingPlayerState.gd" id="7_tqs6g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6tj1"]
 
@@ -190,5 +193,17 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/DebugPanel/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("6_4e1jy")
+CURRENT_STATE = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ANIMATION")]
+script = ExtResource("6_ol7nt")
+ANIMATION = NodePath("../../AnimationPlayer")
+
+[node name="WalkingPlayerState" type="Node" parent="PlayerStateMachine" node_paths=PackedStringArray("ANIMATION")]
+script = ExtResource("7_tqs6g")
+ANIMATION = NodePath("../../AnimationPlayer")
 
 [connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]
