@@ -4,6 +4,7 @@ extends State
 
 @export var CURRENT_STATE : State
 
+
 var states: Dictionary = {}
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 		else:
 			push_warning("State machine contains incopatible child node")
 			
+	await owner.ready
 	CURRENT_STATE.enter()  
 	
 func _process(delta):
