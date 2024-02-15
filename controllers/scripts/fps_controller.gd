@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
 @export var SPEED_DEFAULT : float = 5.0
+@export var SPEED_SPRINTING : float = 7.0
 @export var SPEED_CROUCH : float = 1.0
 @export var SPEED : float = 5.0
 @export var TOGGLE_CROUCH : bool = true
@@ -81,6 +82,9 @@ func _physics_process(delta):
 
 	Global.debug.add_property("MovementSpeed",_speed,1)
 	Global.debug.add_property("MouseRotation",_mouse_rotation,2)
+
+	
+
 	# Update camera movement based on mouse movement
 	_update_camera(delta)
 	
