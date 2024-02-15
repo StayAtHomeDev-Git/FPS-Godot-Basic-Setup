@@ -6,7 +6,6 @@ extends PlayerMovementState
 @export var ACCELERATION : float = 0.1
 @export var DECELERATION : float = 0.25
 
-
 func enter() -> void:
 	ANIMATION.pause()
 
